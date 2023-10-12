@@ -3,11 +3,14 @@ import os
 import logging
 from telegram import Update, ForceReply, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
-
+from classes import LyricsSearch
 
 load_dotenv()
 
 tg_token = os.getenv("TG_TOKEN")
+
+searcher = LyricsSearch('turkish_song_lyrics.csv')
+searcher.find_sentence_for_word("love")
 
 keyboard = [
         [
